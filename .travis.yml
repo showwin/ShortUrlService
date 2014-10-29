@@ -22,11 +22,10 @@ script:
 - RAILS_ENV=test bundle exec rake db:test:prepare
 - RAILS_ENV=test bundle exec rake spec
 
-after_success:
-- echo "$TRAVIS_BRANCH"
-- if [[ "$TRAVIS_BRANCH" == "master" ]] ; then ./script/deploy.sh; fi
-
-notifications:
-  hipchat:
-    rooms:
-      secure: YJt/sO0Roi6VhmdTOVu740zrRYLcaTij42/H5OLM1NQ84SmgQ5SWYdH6q2TZtMcmE/0xncS1wpapPwxXy6hb60XhDWzHu/l76FDSKLWBGWeIk3+YPQE+tW8ayeO1hufFemQ0V7fgRGxzqVsrVirZ8ttcVBjV1QnVtpSvGCxuecc=
+deploy:
+  provider: heroku
+  api_key:
+    secure: FENTuh/JizNXK+2lP8uNyo9MJxLmsTSkTKI18rzK339mdI/0ZUsG9VkjsbTSFNVL7eW20sonBIqhpthhTBy63OxSETtxL+V9IZLvHX7wx+0sXjYMLxfTL6lCObBQR/HETSdxHbVUXENU9TeRNfqgLIAwZZ54Fwp57bpffkdmhEg=
+  app: hidden-brook-7553
+  on:
+    repo: showwin/ShortUrlService
