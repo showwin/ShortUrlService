@@ -3,13 +3,10 @@ require 'spec_helper'
 describe HomeController, :type => :controller do
 
   before(:all) do
-    @url = create(:url)
-    @wrong_url = create(:wrong_url)
-  end
-
-  before(:each) do
-    @user = create(:user)
-    session[:user_id] = @user.id
+    #@url = create(:url)
+    #@wrong_url = create(:wrong_url)
+    @url = Url.new(original_url: "http://www.apple.com")
+    @url.save
   end
 
   describe '#index' do
@@ -29,13 +26,13 @@ describe HomeController, :type => :controller do
     context "original url is valid" do
       it "should create new url" do
         expect{
-          post :create_short_url, create_params
+          post :create_url, @create_params
         }.to change(Url, :count).by(1)
       end
 
       it "has a 200 status code" do
-        post :create_short_url, create_params
-        expect(responce.code).to eq("200")
+        post :create_url, @create_params
+        expect(response.code).to eq("200")
       end
     end
 
@@ -48,20 +45,20 @@ describe HomeController, :type => :controller do
       end
       it "should not create new url" do
         expect{
-          post :create_short_url, create_params
+          post :create_url, @bad_params
         }.to change(Url, :count).by(0)
       end
 
       it "has a 200 status code" do
-        post :create_short_url, create_params
-        expect(responce.code).to eq("200")
+        post :create_url, @bad_params
+        expect(response.code).to eq("200")
       end
     end
   end
 
   describe '#redirect_url' do
     it "has a 302 status code" do
-      get :log
+      get :redirect_url, { short_url: @url.short_url }
       expect(response.code).to eq("302")
     end
   end

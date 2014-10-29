@@ -1,0 +1,8 @@
+.rvmrc
+.rspec
+
+*.gem
+
+.bundle/
+pkg/*
+tmp/

@@ -1,6 +1,10 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/showwin/Develop/Ruby/ShortUrlService/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
       "/Users/showwin/Develop/Ruby/ShortUrlService/app/controllers/home_controller.rb": [
         1,
         1,
@@ -9,23 +13,23 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        4,
+        4,
+        4,
         null,
-        0,
-        0,
+        2,
+        2,
         null,
         null,
-        0,
-        0,
+        2,
+        2,
         0,
         null,
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         null
@@ -36,8 +40,31 @@
         null,
         1,
         null
+      ],
+      "/Users/showwin/Develop/Ruby/ShortUrlService/app/models/url.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        5,
+        5,
+        5,
+        null,
+        null,
+        null,
+        1,
+        20,
+        45,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1414589524
+    "timestamp": 1414595091
   }
 }

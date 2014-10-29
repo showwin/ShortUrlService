@@ -47,7 +47,7 @@ end
 
 group :test do
   ### for rspec one-liner
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   ### for database ###
   gem 'mysql2', '>= 0.3.12b4'
 end
