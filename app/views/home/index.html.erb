@@ -1,0 +1,8 @@
+<%= form_tag(create_url_path, remote: true) do %>
+	<%= text_field_tag :original_url, params[:original_url], :placeholder => "paste URL here" %>
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	<%= submit_tag 'create short url' %>
+<% end %>
+
+<label id="short_url"></label>
+<label id="message"></label>

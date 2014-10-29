@@ -1,0 +1,11 @@
+<% if @url %>
+  $('#short_url').html("<a href=/<%= @url.short_url %>>http://myShortUrl.com/<%= @url.short_url %></a>")
+<% else %>
+  $('#short_url').text("")
+<% end %>
+
+<% if @message %>
+  $('#message').text("<%= @message %>")
+<% else %>
+  $('#message').text("")
+<% end %>

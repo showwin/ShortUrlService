@@ -1,0 +1,32 @@
+language: ruby
+
+rvm:
+- 2.1.1
+
+branches:
+  only:
+  - master
+
+gemfile:
+- Gemfile
+
+env:
+- DB=mysql
+
+before_script:
+- cp config/database.travis.yml config/database.yml
+
+script:
+- RAILS_ENV=test bundle exec rake db:create
+- RAILS_ENV=test bundle exec rake db:migrate
+- RAILS_ENV=test bundle exec rake db:test:prepare
+- RAILS_ENV=test bundle exec rake spec
+
+after_success:
+- echo "$TRAVIS_BRANCH"
+- if [[ "$TRAVIS_BRANCH" == "master" ]] ; then ./script/deploy.sh; fi
+
+notifications:
+  hipchat:
+    rooms:
+      secure: YJt/sO0Roi6VhmdTOVu740zrRYLcaTij42/H5OLM1NQ84SmgQ5SWYdH6q2TZtMcmE/0xncS1wpapPwxXy6hb60XhDWzHu/l76FDSKLWBGWeIk3+YPQE+tW8ayeO1hufFemQ0V7fgRGxzqVsrVirZ8ttcVBjV1QnVtpSvGCxuecc=
